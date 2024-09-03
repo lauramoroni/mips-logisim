@@ -7,17 +7,17 @@ Esse repositório contém o circuito responsável pela implementação simples d
 
 # Sinais de controle
 
-![Circuito mips completo](implementacao-mips/implementacao-mips/image.png)
+![Circuito mips completo](implementacao-mips/image.png)
 
 ## Alterar a operação ULA
 
 Para a implementação MIPS funcionar corretamente, é necessário alterar o valor de entrada da `OPERACAO_ULA` do componente ***Arithmetic Logic Unit* (ALU)** para que ela realize a operação aritmética necessária.
 
-![Operação ULA](implementacao-mips/implementacao-mips/image%201.png)
+![Operação ULA](implementacao-mips/image%201.png)
 
 O valor de entrada deverá ser `0010` , para que ocorra a soma entre o registrador `rs` e o valor `immediate` . O resultado é o valor de entrada do endereço de memórias.
 
-![Sinais de controle](implementacao-mips/implementacao-mips/image%202.png)
+![Sinais de controle](implementacao-mips/image%202.png)
 
 ## Selecionar `LOAD` e `STORE`
 
@@ -53,7 +53,7 @@ Este programa aparece em código de máquina, na forma hexadecimal, no arquivo *
 
 Para usar esses arquivos, é necessário clicar com o botão direito do mouse na **memória de instruções** e nas **memórias de dados** e **carregar os arquivos** com extensão `.mem`.
 
-![Memória de instrução](implementacao-mips/implementacao-mips/image%203.png)
+![Memória de instrução](implementacao-mips/image%203.png)
 
 ## Carregando memória de dados
 
@@ -61,7 +61,7 @@ Para utilizar o exemplo de código fornecido, é necessário inicializar o **end
 
 ## Explicando o componente Load\Store
 
-![Circuito load-store](implementacao-mips/implementacao-mips/image%204.png)
+![Circuito load-store](implementacao-mips/image%204.png)
 
 O circuito para implementar as instruções `Load` e `Store` é o mesmo, diferenciando-se apenas no circuito principal **MIPS**, que é responsável por encaminhar os valores de entrada e saída do componente.
 
@@ -79,12 +79,12 @@ Todas as três operações — `Byte`, `Half` e `Word` — são processadas simu
 
 ### Instrução Load
 
-![Instrução Load](implementacao-mips/implementacao-mips/image%205.png)
+![Instrução Load](implementacao-mips/image%205.png)
 
 Na instrução `Load` , a **entrada do componente** é o valor lido do endereço de memória indicado, e a **saída** é conectada na entrada de `Write data` do componente **Bando de registradores**
 
 ### Instrução Store
 
-![Instrução Store](implementacao-mips/implementacao-mips/image%206.png)
+![Instrução Store](implementacao-mips/image%206.png)
 
 Já na instrução `Store` , a **entrada do componente** é o valor armazenado no registrador `rt` e a **saída** é direcionada para a entrada `Data` da memória de dados.
