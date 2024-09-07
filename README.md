@@ -4,6 +4,8 @@ Esse repositório contém o circuito responsável pela implementação simples d
 ### Instruções implementadas
 
 - Instruções de memória: `LB` , `SB` , `LH` , `SH` , `LW` e `SW`
+- Intruções lógicas e aritméticas: `ADD` , `SUB` , `AND` , `OR`, `SLT`, `ADDI` , `ANDI`, `ORI` e `SLTI`
+- Instruções de salto: `BEQ` e `J`
 
 # Sinais de controle
 
@@ -19,18 +21,30 @@ O valor de entrada deverá ser `0010` , para que ocorra a soma entre o registrad
 
 ![Sinais de controle](implementacao-mips/image%202.png)
 
-## Selecionar `LOAD` e `STORE`
+## Selecionar operação
 
 Para selecionar entre os tipos de operação, segue a tabela abaixo com os valores correspondentes a cada entrada.
 
-| **Instrução** | **Operação ULA** | **LEITURA_MEM** | **ESCRITA_MEM** | **ESCREVE_REG** | **Tipo de instrução** |
-| --- | --- | --- | --- | --- | --- |
-| load byte | 0010 | 1 | 0 | 1 | 00 |
-| store byte | 0010 | 0 | 1 | 0 | 00 |
-| load half | 0010 | 1 | 0 | 1 | 01 |
-| store half | 0010 | 0 | 1 | 0 | 01 |
-| load word | 0010 | 1 | 0 | 1 | 10 |
-| store word | 0010 | 0 | 1 | 0 | 10 |
+| **Instrução** | **ALUOp** | **READ_MEM** | **WRITE_MEM** | **WRITE_REG** | **Tipo de instrução** | **RegDst** | **MemtoReg** | **Branch** | **Jump** | **ALUScr** | 
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| load byte  | 0010 | 1 | 0 | 1 | 00 | 0 | 1 | 0 | 1 | 1 |
+| store byte | 0010 | 0 | 1 | 0 | 00 | 0 | 1 | 0 | 1 | 1 |
+| load half  | 0010 | 1 | 0 | 1 | 01 | 0 | 1 | 0 | 1 | 1 |
+| store half | 0010 | 0 | 1 | 0 | 01 | 0 | 1 | 0 | 1 | 1 |
+| load word  | 0010 | 1 | 0 | 1 | 10 | 0 | 1 | 0 | 1 | 1 |
+| store word | 0010 | 0 | 1 | 0 | 10 | 0 | 1 | 0 | 1 | 1 |
+| add        | 0010 | 0 | 0 | 1 | x  | 1 | 0 | 0 | 1 | 0 |
+| sub        | 0110 | 0 | 0 | 1 | x  | 1 | 0 | 0 | 1 | 0 |
+| and        | 0000 | 0 | 0 | 1 | x  | 1 | 0 | 0 | 1 | 0 |
+| or         | 0001 | 0 | 0 | 1 | x  | 1 | 0 | 0 | 1 | 0 |
+| slt        | 0111 | 0 | 0 | 1 | x  | 1 | 0 | 0 | 1 | 0 |
+| addi       | 0010 | 0 | 0 | 1 | x  | 0 | 0 | 0 | 1 | 1 |
+| andi       | 0000 | 0 | 0 | 1 | x  | 0 | 0 | 0 | 1 | 1 |
+| ori        | 0001 | 0 | 0 | 1 | x  | 0 | 0 | 0 | 1 | 1 |
+| slti       | 0111 | 0 | 0 | 1 | x  | 0 | 0 | 0 | 1 | 1 |
+| beq        | 0110 | 0 | 0 | 1 | 0  | 0 | 0 | 1 | 0 | 1 |
+| j          | x    | 0 | 0 | 0 | 0  | 0 | 0 | 0 | 1 | 1 |
+
 
 ## Carregando memória de instruções
 
