@@ -25,26 +25,25 @@ O valor de entrada deverá ser `0010` , para que ocorra a soma entre o registrad
 
 Para selecionar entre os tipos de operação, segue a tabela abaixo com os valores correspondentes a cada entrada.
 
-| **Instrução** | **ALUOp** | **READ_MEM** | **WRITE_MEM** | **WRITE_REG** | **Tipo de instrução** | **RegDst** | **MemtoReg** | **Branch** | **Jump** | **ALUScr** | 
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| load byte  | 0010 | 1 | 0 | 1 | 00 | 0 | 1 | 0 | 1 | 1 |
-| store byte | 0010 | 0 | 1 | 0 | 00 | 0 | 1 | 0 | 1 | 1 |
-| load half  | 0010 | 1 | 0 | 1 | 01 | 0 | 1 | 0 | 1 | 1 |
-| store half | 0010 | 0 | 1 | 0 | 01 | 0 | 1 | 0 | 1 | 1 |
-| load word  | 0010 | 1 | 0 | 1 | 10 | 0 | 1 | 0 | 1 | 1 |
-| store word | 0010 | 0 | 1 | 0 | 10 | 0 | 1 | 0 | 1 | 1 |
-| add        | 0010 | 0 | 0 | 1 | x  | 1 | 0 | 0 | 1 | 0 |
-| sub        | 0110 | 0 | 0 | 1 | x  | 1 | 0 | 0 | 1 | 0 |
-| and        | 0000 | 0 | 0 | 1 | x  | 1 | 0 | 0 | 1 | 0 |
-| or         | 0001 | 0 | 0 | 1 | x  | 1 | 0 | 0 | 1 | 0 |
-| slt        | 0111 | 0 | 0 | 1 | x  | 1 | 0 | 0 | 1 | 0 |
-| addi       | 0010 | 0 | 0 | 1 | x  | 0 | 0 | 0 | 1 | 1 |
-| andi       | 0000 | 0 | 0 | 1 | x  | 0 | 0 | 0 | 1 | 1 |
-| ori        | 0001 | 0 | 0 | 1 | x  | 0 | 0 | 0 | 1 | 1 |
-| slti       | 0111 | 0 | 0 | 1 | x  | 0 | 0 | 0 | 1 | 1 |
-| beq        | 0110 | 0 | 0 | 1 | 0  | 0 | 0 | 1 | 0 | 1 |
-| j          | x    | 0 | 0 | 0 | 0  | 0 | 0 | 0 | 1 | 1 |
-
+| **Instrução** | **Operação ULA** | **READ_MEM** | **WRITE_MEM** | **WRITE_REG** | **Tipo de instrução** | **RegDst** | **MemToReg** | **BEQ** | **BNE** | **Jump** | **ALUsrc** |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| load byte | 0010 | 1 | 0 | 1 | 00 | 0 | 1 | 0 | 0 | 0 | 1 |
+| store byte | 0010 | 0 | 1 | 0 | 00 | 0 | 0 | 0 | 0 | 0 | 1 |
+| load half | 0010 | 1 | 0 | 1 | 01 | 0 | 1 | 0 | 0 | 0 | 1 |
+| store half | 0010 | 0 | 1 | 0 | 01 | 0 | 0 | 0 | 0 | 0 | 1 |
+| load word | 0010 | 1 | 0 | 1 | 10 | 0 | 1 | 0 | 0 | 0 | 1 |
+| store word | 0010 | 0 | 1 | 0 | 10 | 0 | 0 | 0 | 0 | 0 | 1 |
+| bne | 0110 | 0 | 0 | 0 | 00 | 0 | 0 | 0 | 1 | 0 | 0 |
+| j | 0000 | 0 | 0 | 0 | 00 | 0 | 0 | 0 | 0 | 1 | 0 |
+| add | 0010 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| and | 0000 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| sub | 0110 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| or | 0001 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| slt | 0111 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| addi | 0010 | 0 | 0 | 1 | 0 | 1 | 0 | 0 | 0 | 0 | 0 |
+| andi | 0000 | 0 | 0 | 1 | 0 | 1 | 0 | 0 | 0 | 0 | 0 |
+| ori | 0001 | 0 | 0 | 1 | 0 | 1 | 0 | 0 | 0 | 0 | 0 |
+| slti | 0111 | 0 | 0 | 1 | 0 | 1 | 0 | 0 | 0 | 0 | 0 |
 
 ## Carregando memória de instruções
 
